@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Launcher</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #111;
+      color: white;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click below to play!</h1>
+  <button onclick="openCloaked()">Play Game</button>
+
+  <script>
+    function openCloaked() {
+      let win = window.open('about:blank', '_blank');
+      
+      if (!win) {
+        alert('Please allow popups so the game can open!');
+        return;
+      }
+
+      // PASTE YOUR GAME LINK INSIDE THE SINGLE QUOTES BELOW:
+      let targetUrl = 'https://esm.sh/gh/nir675/Drive-Mad@efc2b71/index.html'; 
+
+      win.document.body.style.margin = '0';
+      win.document.body.style.height = '100vh';
+      win.document.body.style.overflow = 'hidden';
+
+      let iframe = win.document.createElement('iframe');
+      iframe.src = targetUrl;
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = 'none';
+
+      win.document.body.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
